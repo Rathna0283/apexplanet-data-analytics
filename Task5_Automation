@@ -1,0 +1,71 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "0bf67c0c-6f22-4e24-9437-8e0fd41839d5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "===== KEY PERFORMANCE INDICATORS =====\n",
+      "Total Sales : 2297200.8603000003\n",
+      "Total Profit : 286397.0217\n",
+      "Total Orders : 10296\n",
+      "\n",
+      "Automation Completed Successfully!\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "# Load dataset\n",
+    "df = pd.read_csv(\"superstore.csv\")\n",
+    "\n",
+    "# Data Cleaning\n",
+    "df = df.drop_duplicates()\n",
+    "df = df.fillna(0)\n",
+    "\n",
+    "# Calculate KPIs\n",
+    "total_sales = df[\"Sales\"].sum()\n",
+    "total_profit = df[\"Profit\"].sum()\n",
+    "total_orders = len(df)\n",
+    "\n",
+    "# Save processed data\n",
+    "df.to_excel(\"processed_data.xlsx\", index=False)\n",
+    "\n",
+    "# Display KPIs\n",
+    "print(\"===== KEY PERFORMANCE INDICATORS =====\")\n",
+    "print(\"Total Sales :\", total_sales)\n",
+    "print(\"Total Profit :\", total_profit)\n",
+    "print(\"Total Orders :\", total_orders)\n",
+    "\n",
+    "print(\"\\nAutomation Completed Successfully!\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
